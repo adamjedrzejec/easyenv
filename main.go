@@ -49,6 +49,8 @@ func GetEnv() (map[string]string, error) {
 			return nil, ErrBadFormat
 		}
 
+		variables[varSlice[0]] = varSlice[1]
+
 		fmt.Println(varSlice)
 	}
 
@@ -73,7 +75,11 @@ func main() {
 
 	fmt.Println("Number of extra environment variables:", len(environment.Extras))
 
-	_, err = GetEnv()
+	envVars, err := GetEnv()
+
+	for key, val := range envVars {
+		fmt.Printf("%s -> %s\n", key, val)
+	}
 
 	check(err)
 }
