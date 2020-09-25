@@ -34,7 +34,7 @@ func GetEnv() (map[string]string, error) {
 	check(err)
 	defer file.Close()
 
-	var variables map[string]string
+	variables := make(map[string]string)
 
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
