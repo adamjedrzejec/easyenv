@@ -1,4 +1,4 @@
-module github.com/adamjedrzejec/go-env-vars
+module github.com/adamjedrzejec/easyenv
 
 go 1.14
 
