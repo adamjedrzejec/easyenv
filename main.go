@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 
 	env "github.com/Netflix/go-env"
 	easyenv "github.com/adamjedrzejec/go-env-vars/EasyEnv"
@@ -35,7 +36,9 @@ func main() {
 
 	fmt.Println("Number of extra environment variables:", len(environment.Extras))
 
-	envVars, err := easyenv.GetEnv("./.env")
+	wd, _ := os.Getwd()
+
+	envVars, err := easyenv.GetEnv(wd + "/.env")
 	check(err)
 
 	for key, val := range envVars {

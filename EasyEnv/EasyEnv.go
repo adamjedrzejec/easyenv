@@ -21,9 +21,7 @@ var (
 
 // GetEnv returns the map filled with env vars from the .env file
 func GetEnv(path string) (map[string]string, error) {
-	wd, _ := os.Getwd()
-
-	file, err := os.Open(wd + "/" + path)
+	file, err := os.Open(path)
 	check(err)
 	defer file.Close()
 
